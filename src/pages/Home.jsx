@@ -1,9 +1,10 @@
+import heroImage from "../assets/hero.png";
 function Home() {
   return (
     <div style={styles.page}>
 
       {/* HERO SECTION */}
-      import heroImage from "../assets/hero.png";
+      
       <section style={styles.hero}>
         <div style={styles.heroText}>
           <h1 style={styles.title}>FirstQlik</h1>
@@ -17,9 +18,9 @@ function Home() {
 
         <div style={styles.heroImage}>
           <img
-            src="{heroImage} style={styles.image}"
-            alt="AI concept"
-            style={{ width: "100%", borderRadius: "12px" }}
+            src={heroImage}
+            alt="AI Architecture"
+            style={styles.image}
           />
         </div>
       </section>
@@ -61,7 +62,13 @@ const styles = {
     background: "#f9fafb",
     color: "#111827",
   },
-
+  
+  image: {
+  width: "100%",
+  height: "auto",
+  borderRadius: "16px",
+  boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+},
   hero: {
     display: "flex",
     justifyContent: "space-between",
@@ -74,7 +81,10 @@ const styles = {
   heroText: {
     maxWidth: "500px",
   },
-
+  heroImage: {
+  maxWidth: "450px",
+  width: "100%",
+},
   title: {
     fontSize: "52px",
     fontWeight: "700",
@@ -122,7 +132,8 @@ secondaryBtn: {
   },
 
   heroImage: {
-    maxWidth: "400px",
+    maxWidth: "450px",
+    width: "100%"
   },
 
   section: {
