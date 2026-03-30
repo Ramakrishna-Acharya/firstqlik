@@ -1,3 +1,4 @@
+import heroImage from "../assets/hero.png";
 function Home() {
   return (
     <div style={styles.page}>
@@ -16,7 +17,7 @@ function Home() {
 
         <div style={styles.heroImage}>
           <img
-            src="https://via.placeholder.com/400x300"
+            src="{heroImage} style={styles.image}"
             alt="AI concept"
             style={{ width: "100%", borderRadius: "12px" }}
           />
