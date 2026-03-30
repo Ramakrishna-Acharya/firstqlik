@@ -1,3 +1,10 @@
+import { Routes, Route, Link } from "react-router-dom";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Insights from "./pages/Insights";
+import Playbooks from "./pages/Playbooks";
+
 function App() {
   return (
     <div style={styles.page}>
@@ -8,61 +15,26 @@ function App() {
         <p style={styles.subtitle}>
           Your first stop for practical technology decisions in the AI era
         </p>
-        <span style={styles.tag}>Architects • Leaders • Decision Makers</span>
       </header>
 
       {/* NAV */}
       <nav style={styles.nav}>
-        <a href="#">Home</a>
-        <a href="#">Insights</a>
-        <a href="#">Playbooks</a>
-        <a href="#">About</a>
+        <Link style={styles.link} to="/">Home</Link>
+        <Link style={styles.link} to="/insights">Insights</Link>
+        <Link style={styles.link} to="/playbooks">Playbooks</Link>
+        <Link style={styles.link} to="/about">About</Link>
       </nav>
 
-      {/* MAIN CONTENT */}
+      {/* ROUTES */}
       <div style={styles.container}>
-
-        <Card title="What is FirstQlik">
-          A thinking platform for technology leaders navigating architecture,
-          AI adoption, and complex engineering decisions.
-        </Card>
-
-        <Card title="Purpose">
-          To simplify technology choices and bring clarity to engineering
-          and architecture decisions in real-world environments.
-        </Card>
-
-        <Card title="Insights">
-          AI in enterprise systems, cloud architecture patterns,
-          security thinking, and leadership perspectives.
-        </Card>
-
-        <Card title="Playbooks (Coming Soon)">
-          Decision frameworks: when to use what technology, how to design systems,
-          and how to think like an architect.
-        </Card>
-
-        <Card title="About">
-          A technology leader with 20+ years of experience across engineering,
-          architecture, and transformation programs.
-        </Card>
-
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/insights" element={<Insights />} />
+          <Route path="/playbooks" element={<Playbooks />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </div>
 
-      {/* FOOTER */}
-      <footer style={styles.footer}>
-        © 2026 FirstQlik — Built for thinkers, architects, and leaders
-      </footer>
-
-    </div>
-  );
-}
-
-function Card({ title, children }) {
-  return (
-    <div style={styles.card}>
-      <h2 style={styles.cardTitle}>{title}</h2>
-      <p style={styles.cardText}>{children}</p>
     </div>
   );
 }
@@ -76,57 +48,35 @@ const styles = {
   },
   header: {
     textAlign: "center",
-    padding: "80px 20px 40px",
+    padding: "60px 20px",
     background: "radial-gradient(circle at top, #1a2238, #0b0f19)",
   },
   title: {
-    fontSize: "48px",
-    marginBottom: "10px",
+    fontSize: "40px",
   },
   subtitle: {
-    fontSize: "18px",
+    fontSize: "16px",
     color: "#a9b4c0",
-  },
-  tag: {
-    display: "inline-block",
-    marginTop: "12px",
-    padding: "6px 12px",
-    background: "#1f2a44",
-    borderRadius: "20px",
-    fontSize: "12px",
-    color: "#93c5fd",
   },
   nav: {
     display: "flex",
     justifyContent: "center",
-    gap: "20px",
-    padding: "15px",
+    gap: "30px",
+    padding: "18px",
     background: "#11182a",
+    borderBottom: "1px solid #1f2a44",
   },
   container: {
     maxWidth: "1000px",
     margin: "auto",
-    padding: "40px 20px",
+    padding: "60px 20px",
   },
-  card: {
-    background: "#121a2b",
-    padding: "20px",
-    borderRadius: "14px",
-    marginBottom: "20px",
-    border: "1px solid #1f2a44",
-  },
-  cardTitle: {
-    marginBottom: "10px",
-  },
-  cardText: {
-    color: "#b8c2cc",
-  },
-  footer: {
-    textAlign: "center",
-    padding: "40px",
-    fontSize: "13px",
-    color: "#6b7280",
-  },
+  link: {
+  color: "#cbd5e1",
+  textDecoration: "none",
+  fontSize: "14px",
+  fontWeight: "500",
+ },
 };
 
 export default App;
