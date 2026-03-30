@@ -1,9 +1,9 @@
-import heroImage from "../assets/hero.png";
 function Home() {
   return (
     <div style={styles.page}>
 
       {/* HERO SECTION */}
+      import heroImage from "../assets/hero.png";
       <section style={styles.hero}>
         <div style={styles.heroText}>
           <h1 style={styles.title}>FirstQlik</h1>
