@@ -1,30 +1,83 @@
+import playbooks from "../data/playbooks";
+
 function Playbooks() {
   return (
-    <div>
-      <h1>Playbooks</h1>
+    <div style={styles.page}>
+      <h1 style={styles.title}>Playbooks</h1>
 
-      <h2>Microservices vs Monolith</h2>
+      {playbooks.map((pb, index) => (
+        <div key={index} style={styles.card}>
+          <h2>{pb.title}</h2>
 
-      <p><strong>Use Microservices when:</strong></p>
-      <ul>
-        <li>System is large and complex</li>
-        <li>Teams are independent</li>
-        <li>Need for scalability</li>
-      </ul>
+          <div style={styles.grid}>
+            
+            <div style={styles.box}>
+              <h3>Use Microservices when</h3>
+              <ul>
+                {pb.microservices.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </div>
 
-      <p><strong>Use Monolith when:</strong></p>
-      <ul>
-        <li>Small team</li>
-        <li>Simple application</li>
-        <li>Speed of development is critical</li>
-      </ul>
+            <div style={styles.box}>
+              <h3>Use Monolith when</h3>
+              <ul>
+                {pb.monolith.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </div>
 
-      <p>
-        <strong>Key Insight:</strong> Microservices are not a default choice.
-        They are an advanced solution for specific problems.
-      </p>
+          </div>
+
+          <div style={styles.insight}>
+            <strong>Key Insight:</strong> {pb.insight}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
 
-export default Playbooks;
+const styles = {
+  page: {
+    padding: "40px",
+  },
+
+  title: {
+    marginBottom: "30px",
+  },
+
+  card: {
+    background: "white",
+    padding: "30px",
+    borderRadius: "12px",
+    boxShadow: "0 5px 20px rgba(0,0,0,0.05)",
+    marginBottom: "30px",
+  },
+
+  grid: {
+    display: "flex",
+    gap: "20px",
+    marginTop: "20px",
+    flexWrap: "wrap",
+  },
+
+  box: {
+    flex: "1",
+    minWidth: "250px",
+    background: "#f3f4f6",
+    padding: "20px",
+    borderRadius: "10px",
+  },
+
+  insight: {
+    marginTop: "20px",
+    padding: "15px",
+    background: "#e0f2fe",
+    borderRadius: "8px",
+  },
+};
+
+export default Playbooks; 
