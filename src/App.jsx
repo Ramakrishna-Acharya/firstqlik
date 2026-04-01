@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Insights from "./pages/Insights";
 import Playbooks from "./pages/Playbooks";
+import Tools from "./pages/Tools";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Link style={styles.link} to="/insights">Insights</Link>
         <Link style={styles.link} to="/playbooks">Playbooks</Link>
         <Link style={styles.link} to="/about">About</Link>
+      
       </nav>
 
       {/* ROUTES */}
@@ -32,6 +34,7 @@ function App() {
           <Route path="/insights" element={<Insights />} />
           <Route path="/playbooks" element={<Playbooks />} />
           <Route path="/about" element={<About />} />
+          <Route path="/tools" element={<Tools />} />
         </Routes>
       </div>
 
